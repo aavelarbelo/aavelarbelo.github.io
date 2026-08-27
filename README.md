@@ -1,55 +1,39 @@
-# Hi, I'm Andressa Avelar 👋🤓
+Hi, I'm Andressa Avelar 👋🤓
 
-**Control & Automation Engineer specializing in Data Engineering, Big Data and Cloud technologies.**
+Control & Automation Engineer turned Data Engineer — I build data pipelines end to end, from messy source to decision-ready dashboard.
 
-Post-Graduate in **Big Data and Decision Making** at ISEP (Porto, Portugal), currently developing hands-on projects across data engineering, cloud infrastructure, containerization and automation.
+I hold a Post-Graduate degree in Big Data & Decision Making from ISEP (Porto). My focus is the part of data engineering that banks and ESG teams struggle with most: taking fragmented, unreliable data and making it clean, traceable and useful — with quality checks, dimensional modeling and clear documentation.
 
-My current focus is building a stronger bridge between **Data Engineering and Cloud/DevOps**, working hands-on with Python, Docker, AWS, Terraform and CI/CD.
+📍 Porto, Portugal · 💼 Open to junior / trainee Data Engineering roles 🔗 LinkedIn · Portfolio · eng.belo@gmail.com · @debugandressa
 
-📍 Porto, Portugal · 💼 Open to junior opportunities in Data Engineering, Cloud/DevOps and related engineering roles
+⭐ Featured — UrbanEco: an ESG-style data pipeline
 
-[LinkedIn](https://linkedin.com/in/andressaavelar) · https://aavelarbelo.github.io/ · eng.belo@gmail.com · [@debugandressa](https://www.instagram.com/debugandressa)
----
+energy-value-index-porto · in active development
 
-## ☁️ Current Cloud/DevOps Project
+Turning fragmented, unreliable public property data into a reliable, geographically-disaggregated Energy Value Index (EVI) — from ingestion and quality control all the way to the dashboard. It's the same problem sustainable-finance teams describe: ESG data that is scarce, messy and hard to trust.
 
-### [Cloud DevOps — AWS ECS/Fargate](https://github.com/aavelarbelo/cloud-devops-aws-ecs-fargate)
+What I built, end to end:
 
-Hands-on project focused on the deployment lifecycle of a containerized Python application:
+Ingestion — a multi-page Selenium scraper (~2,800 property listings across 7 districts of Porto), with source traceability and de-duplication
+Quality & standardization — separate raw and validated bases, cleaned prices/areas, boolean amenities
+Warehouse — a 24-variable schema on PostgreSQL (Aiven Cloud)
+Index — a documented, weighted Energy Value Index (Energy 55% + Price 45%, scored 1–10)
+Reporting — a Power BI dashboard with the EVI and a per-district energy gap
 
-**Python → Docker → Amazon ECR → Amazon ECS/Fargate**
+Python · Selenium · PostgreSQL · Power BI · Data Quality · Dimensional Modeling
 
-Infrastructure as Code with **Terraform**, followed by deployment automation using **GitLab CI/CD**.
+Individual continuation of an ISEP group project (urbaneco-analytics, archived), where I led the data engineering — rebuilt end to end and developed with the team's permission. Prices are asking prices and any synthetic fields are flagged, stated openly for methodological transparency.
 
-🚧 Currently being implemented and documented incrementally.
+🧠 Also — Customer Churn Prediction
 
----
+data-mining-churn-prediction
 
-## 🎓 Postgraduate Portfolio — one project per course unit
+Telecom customer churn with CRISP-DM: EDA, data cleaning, and several classifiers compared — with the honest finding that the highest-accuracy model was not the best business choice, because missing a churner costs more than a false alarm. The dataset also hid mixed encodings from two merged sources; I caught it during preparation and re-ran the pipeline. Full write-up in the repo.
 
-| Course Unit | Project | Status |
-|---|---|---|
-| Data Mining | [data-mining-churn-prediction](https://github.com/aavelarbelo/data-mining-churn-prediction) — end-to-end churn prediction with CRISP-DM: EDA, data cleaning, 4 classifiers compared (ROC/PR, cross-validation), business insights | ✅ Complete |
-| Data Warehouse | [topico-eficiencia-processo-produtivo](https://github.com/aavelarbelo/topico-eficiencia-processo-produtivo) — dimensional modeling and ETL for production-efficiency analysis | 🔄 Being evolved into a standalone DW project |
-| Big Data Tools | [bigdata-tools-lab](https://github.com/aavelarbelo/bigdata-tools-lab) — hands-on labs with Spark (RDDs), Kafka and distributed processing · [mini-social-bdt](https://github.com/aavelarbelo/mini-social-bdt) — NoSQL mini-project with Cassandra (CQL) | 🔄 In progress |
-| Data Analytics | [energy-value-index-porto](https://github.com/aavelarbelo/energy-value-index-porto) — real estate & energy-efficiency analytics with a composite Energy Value Index (EVI); personal project evolving an academic group MVP ([urbaneco-analytics](https://github.com/aavelarbelo/urbaneco-analytics)) · [logistics-route-optimization](https://github.com/aavelarbelo/logistics-route-optimization) | 🔄 In progress |
-| Business Intelligence | Power BI dashboards and reporting layer | 🗓️ Planned |
-| Data Security · Data Architecture · Cloud/DevOps | Security and architecture concepts applied across projects, with a dedicated [AWS ECS/Fargate Cloud DevOps project](https://github.com/aavelarbelo/cloud-devops-aws-ecs-fargate) currently under development | 🔄 In progress |
-| Seminars (final project) | [urbaneco-analytics](https://github.com/aavelarbelo/urbaneco-analytics) — academic group MVP (lead contributor: blog, architecture, documentation), continued personally as [energy-value-index-porto](https://github.com/aavelarbelo/energy-value-index-porto) | 🔄 Being expanded |
-> Each ✅ project is reproducible: clone it, install `requirements.txt`, run the notebooks in order. Work sessions are logged in each repo's `WORKLOG.md`.
+Python · pandas · scikit-learn · CRISP-DM
 
----
+🛠️ Tech
 
-## 🛠️ Tech stack
+Core: Python (pandas, NumPy, scikit-learn) · SQL · PostgreSQL · Selenium · Power BI · Docker · Git From my postgrad: dimensional modeling · data warehousing · data quality · CRISP-DM Currently learning: T-SQL / SQL Server · AWS · CI/CD · PySpark
 
-**Languages & analysis:** Python (pandas, NumPy, scikit-learn) · SQL
-**Data engineering:** PostgreSQL · MongoDB · Cassandra · Redis · Kafka · Hive · PySpark · Docker
-**BI & visualization:** Power BI · Matplotlib · Seaborn
-**Practices:** CRISP-DM · dimensional modeling · reproducible pipelines · technical documentation
-
----
-
-## 🌟 Featured: Customer Churn Prediction
-
-My most complete project so far — [data-mining-churn-prediction](https://github.com/aavelarbelo/data-mining-churn-prediction):
-telecom churn prediction where the best-accuracy model was **not** the best business choice. Naive Bayes catches 85% of churners; SVM gives the best balance (AUC 0.82). The dataset hid mixed encodings from two merged sources — detected via one-hot encoding, fixed in the preparation phase, pipeline re-run. Full story in the repo.
+Engineer by training, data engineer by choice — I care about pipelines that are reliable, traceable, and honest about their limits.
