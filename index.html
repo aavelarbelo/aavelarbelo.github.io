@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andressa Avelar — Data Engineer</title>
+<meta name="description" content="Andressa Avelar — Data Engineer. Transforming automation into robust solutions for Data and Technology.">
+
+<!-- Google Fonts: Raleway (corpo elegante) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM — Matrix elegante
+   ============================================================ */
+:root{
+  --bg:        #0a0a0a;
+  --green:     #00ff41;
+  --green-dim: #003b00;
+  --text:      #ffffff;
+  --muted:     #888888;
+  --border:    rgba(0, 255, 65, 0.18);
+  --glow:      0 0 10px rgba(0, 255, 65, 0.55);
+  --mono:      'Courier New', Courier, monospace;
+  --sans:      'Raleway', 'Inter', -apple-system, sans-serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  cursor: crosshair;
+  overflow-x: hidden;
+}
+
+a, button{ cursor: crosshair; }
+
+::selection{ background: var(--green); color: #000; }
+
+/* Scrollbar fina e verde */
+::-webkit-scrollbar{ width: 5px; }
+::-webkit-scrollbar-track{ background: var(--bg); }
+::-webkit-scrollbar-thumb{ background: var(--green-dim); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover{ background: var(--green); }
+html{ scrollbar-width: thin; scrollbar-color: var(--green-dim) var(--bg); }
+
+/* ============================================================
+   /* === intro: matrix rain + typewriter === */
+   ============================================================ */
+#intro{
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1.2s ease;
+}
+#intro.hidden{ opacity: 0; pointer-events: none; }
+
+#rainCanvas{ position: absolute; inset: 0; width: 100%; height: 100%; }
+
+#introText{
+  position: relative;
+  z-index: 2;
+  font-family: var(--mono);
+  color: var(--green);
+  font-size: clamp(0.95rem, 2.4vw, 1.4rem);
+  text-shadow: 0 0 8px rgba(0,255,65,0.6);
+  background: rgba(0,0,0,0.55);
+  padding: 2rem 2.6rem;
+  border: 1px solid var(--border);
+  min-width: min(520px, 86vw);
+}
+#introText .line{ display: block; min-height: 1.7em; white-space: nowrap; overflow: hidden; }
+
+.cursor{
+  display: inline-block;
+  width: 0.55em; height: 1.1em;
+  background: var(--green);
+  margin-left: 3px;
+  vertical-align: text-bottom;
+  animation: blink 0.85s steps(1) infinite;
+}
+@keyframes blink{ 50%{ opacity: 0; } }
+
+#skipHint{
+  position: absolute;
+  bottom: 6vh;
+  z-index: 2;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.2em;
+  animation: blink 2s ease infinite;
+}
+
+/* ============================================================
+   /* === site principal === */
+   ============================================================ */
+#site{ opacity: 0; transition: opacity 1.4s ease; }
+#site.visible{ opacity: 1; }
+
+/* Árvore tecnológica de fundo */
+#treeCanvas{
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+main{ position: relative; z-index: 1; }
+
+section{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem;
+}
+
+/* Separador estilo comentário de código */
+.section-label{
+  font-family: var(--mono);
+  color: var(--green);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  opacity: 0.9;
+  margin-bottom: 0.6rem;
+}
+.section-rule{
+  height: 1px;
+  background: linear-gradient(90deg, var(--green) 0%, rgba(0,255,65,0.25) 35%, transparent 100%);
+  margin-bottom: 3rem;
+}
+
+h2{
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+
+/* Scroll reveal */
+.reveal{
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal.in{ opacity: 1; transform: none; }
+
+/* ------------------------------------------------------------
+   HERO
+   ------------------------------------------------------------ */
+#hero{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 4rem;
+}
+
+.hero-eyebrow{
+  font-family: var(--mono);
+  color: var(--green);
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  margin-bottom: 1.4rem;
+}
+
+h1{
+  font-weight: 700;
+  font-size: clamp(2.4rem, 8vw, 4.6rem);
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+}
+h1 .accent{ color: var(--green); text-shadow: 0 0 18px rgba(0,255,65,0.35); }
+
+#roleLine{
+  font-family: var(--mono);
+  color: var(--green);
+  font-size: clamp(0.8rem, 2.1vw, 1.05rem);
+  line-height: 1.5;
+  margin-top: 1.2rem;
+  max-width: 620px;
+  min-height: 4.5em;
+}
+
+.tagline{
+  color: var(--muted);
+  font-style: italic;
+  font-size: clamp(0.95rem, 2.4vw, 1.1rem);
+  max-width: 540px;
+  margin-top: 1.4rem;
+}
+
+.socials{
+  display: flex;
+  gap: 1.6rem;
+  margin-top: 2.2rem;
+}
+.socials a{
+  color: var(--muted);
+  transition: color 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+  display: inline-flex;
+}
+.socials a:hover, .socials a:focus-visible{
+  color: var(--green);
+  filter: drop-shadow(0 0 6px rgba(0,255,65,0.8));
+  transform: translateY(-2px);
+}
+.socials svg{ width: 22px; height: 22px; }
+
+.cta{
+  display: inline-block;
+  margin-top: 2.8rem;
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  color: var(--green);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 0.85rem 2rem;
+  background: rgba(0,59,0,0.15);
+  transition: box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+}
+.cta:hover, .cta:focus-visible{
+  box-shadow: var(--glow);
+  border-color: var(--green);
+  background: rgba(0,59,0,0.35);
+}
+
+a:focus-visible, button:focus-visible{
+  outline: 1px solid var(--green);
+  outline-offset: 3px;
+}
+
+.scroll-hint{
+  margin-top: 4rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.3em;
+  animation: drift 2.6s ease-in-out infinite;
+}
+@keyframes drift{ 50%{ transform: translateY(6px); } }
+
+/* ------------------------------------------------------------
+   ABOUT
+   ------------------------------------------------------------ */
+.about-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.4rem;
+  font-size: 1.02rem;
+  color: #d6d6d6;
+  max-width: 760px;
+}
+.about-grid strong{ color: var(--text); font-weight: 600; }
+.about-grid .hl{ color: var(--green); font-family: var(--mono); font-size: 0.95em; }
+
+/* ------------------------------------------------------------
+   SKILLS — estilo terminal
+   ------------------------------------------------------------ */
+.skill-groups{ display: grid; gap: 1.3rem; }
+
+.skill-group{
+  border: 1px solid var(--border);
+  background: rgba(0, 20, 0, 0.25);
+  padding: 1.3rem 1.5rem;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.skill-group:hover{ box-shadow: 0 0 14px rgba(0,255,65,0.18); border-color: rgba(0,255,65,0.45); }
+
+.skill-group h3{
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: 0.92rem;
+  color: var(--green);
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.05em;
+}
+.skill-group h3::before{ content: '> '; opacity: 0.7; }
+
+.tags{ display: flex; flex-wrap: wrap; gap: 0.55rem; }
+.tag{
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: #cfe8cf;
+  border: 1px solid var(--border);
+  padding: 0.32rem 0.75rem;
+  background: rgba(0,59,0,0.18);
+  transition: box-shadow 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.tag:hover{
+  color: var(--green);
+  border-color: var(--green);
+  box-shadow: var(--glow);
+}
+
+
+/* Status dos projetos + tags nos cards */
+.c-status{
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--green);
+  border: 1px solid var(--border);
+  padding: 0.18rem 0.6rem;
+  align-self: flex-start;
+  background: rgba(0,59,0,0.25);
+}
+.c-status.progress{ color: var(--muted); border-style: dashed; background: transparent; }
+.c-tags{ display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.3rem; }
+.c-tags span{
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: #9fc79f;
+  border: 1px solid var(--border);
+  padding: 0.14rem 0.5rem;
+}
+
+/* Skills em treino: sem evidência pública ainda — honestidade primeiro */
+.tag.dim{ color: var(--muted); border-style: dashed; background: transparent; }
+.group-note{
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin: -0.4rem 0 0.9rem;
+}
+
+/* ------------------------------------------------------------
+   EXPERIENCE — timeline vertical
+   ------------------------------------------------------------ */
+.timeline{
+  position: relative;
+  padding-left: 2.2rem;
+}
+.timeline::before{
+  content: '';
+  position: absolute;
+  left: 6px; top: 4px; bottom: 4px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--green), rgba(0,255,65,0.12));
+}
+
+.t-item{ position: relative; padding-bottom: 2.8rem; }
+.t-item:last-child{ padding-bottom: 0; }
+
+.t-item::before{
+  content: '';
+  position: absolute;
+  left: -2.2rem;
+  top: 7px;
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--green);
+  box-shadow: 0 0 8px rgba(0,255,65,0.5);
+}
+
+.t-when{
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--green);
+  letter-spacing: 0.08em;
+}
+.t-role{ font-weight: 600; font-size: 1.08rem; margin-top: 0.15rem; }
+.t-org{ color: var(--muted); font-size: 0.92rem; }
+.t-desc{ color: #c9c9c9; font-size: 0.95rem; margin-top: 0.5rem; max-width: 640px; }
+
+/* ------------------------------------------------------------
+   EDUCATION + PROJECTS — cards
+   ------------------------------------------------------------ */
+.card-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.3rem;
+}
+
+.card{
+  border: 1px solid var(--border);
+  background: rgba(0, 20, 0, 0.25);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+  text-decoration: none;
+  color: inherit;
+}
+.card:hover, .card:focus-visible{
+  box-shadow: var(--glow);
+  border-color: var(--green);
+  transform: translateY(-3px);
+}
+
+.card .c-when{
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--green);
+  letter-spacing: 0.08em;
+}
+.card h3{ font-weight: 600; font-size: 1.02rem; line-height: 1.4; }
+.card p{ color: var(--muted); font-size: 0.9rem; }
+.card-links{
+  margin-top: auto;
+  padding-top: 0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.card-link-btn{
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  color: var(--green);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 0.32rem 0.7rem;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card-link-btn:hover, .card-link-btn:focus-visible{
+  border-color: var(--green);
+  box-shadow: var(--glow);
+}
+.card-link-btn.primary{
+  color: var(--bg);
+  background: var(--green);
+  border-color: var(--green);
+}
+.card-link-btn.primary:hover{
+  box-shadow: var(--glow);
+  filter: brightness(1.1);
+}
+.card .c-link{
+  margin-top: auto;
+  padding-top: 0.7rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--green);
+}
+
+
+.c-unit{
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--green);
+  opacity: 0.8;
+  margin-top: -0.3rem;
+}
+.c-thumb{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  background: rgba(0,20,0,0.4);
+  margin-bottom: 0.3rem;
+}
+.c-origin-note{
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-style: italic;
+}
+.roadmap-line{
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 2.2rem;
+  padding-top: 1.4rem;
+  border-top: 1px dashed var(--border);
+}
+.roadmap-line .hl{ color: var(--green); }
+
+/* ------------------------------------------------------------
+   CONTACT
+   ------------------------------------------------------------ */
+#contact{ text-align: center; padding-bottom: 4rem; }
+
+.contact-phrase{
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-weight: 500;
+  max-width: 620px;
+  margin: 0 auto 1.4rem;
+}
+.contact-loc{ color: var(--muted); font-size: 0.95rem; }
+
+.contact-links{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: 1.6rem;
+  font-family: var(--mono);
+  font-size: 0.88rem;
+}
+.contact-links a{ color: var(--green); text-decoration: none; transition: text-shadow 0.3s ease; }
+.contact-links a:hover{ text-shadow: 0 0 8px rgba(0,255,65,0.8); }
+.contact-links .dot{ color: var(--green-dim); }
+
+.email-style{
+  display: inline-block;
+  margin-top: 2rem;
+  font-family: var(--mono);
+  font-size: 0.86rem;
+  color: var(--muted);
+  border: 1px dashed var(--border);
+  padding: 0.7rem 1.6rem;
+  letter-spacing: 0.05em;
+}
+.email-style .at{ color: var(--green); }
+
+footer{
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--green-dim);
+  padding: 2rem 1rem 2.4rem;
+  letter-spacing: 0.1em;
+}
+footer span{ color: var(--green); opacity: 0.6; }
+
+/* ------------------------------------------------------------
+   RESPONSIVO + ACESSIBILIDADE
+   ------------------------------------------------------------ */
+@media (max-width: 600px){
+  section{ padding: 4rem 1.2rem; }
+  #introText{ padding: 1.4rem 1.2rem; }
+  .timeline{ padding-left: 1.8rem; }
+  .t-item::before{ left: -1.8rem; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html{ scroll-behavior: auto; }
+  .reveal{ opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     TELA DE INTRO — chuva matrix + typewriter
+     ============================================================ -->
+<div id="intro" role="dialog" aria-label="Intro animation. Click to skip.">
+  <canvas id="rainCanvas" aria-hidden="true"></canvas>
+  <div id="introText" aria-live="polite">
+    <span class="line" id="l0"></span>
+    <span class="line" id="l1"></span>
+    <span class="line" id="l2"></span>
+    <span class="line" id="l3"></span>
+  </div>
+  <div id="skipHint">[ CLICK TO ENTER ]</div>
+</div>
+
+<!-- ============================================================
+     SITE PRINCIPAL
+     ============================================================ -->
+<div id="site" aria-hidden="true">
+
+  <canvas id="treeCanvas" aria-hidden="true"></canvas>
+
+  <main>
+
+    <!-- /* === hero === */ -->
+    <section id="hero">
+      <div class="hero-eyebrow">// HELLO, WORLD</div>
+      <h1>Andressa <span class="accent">Avelar</span></h1>
+      <div id="roleLine"><span id="roleText"></span><span class="cursor" aria-hidden="true"></span></div>
+      <p class="tagline">"I think in data — building reliable, traceable data pipelines, from messy source to decision-ready information."</p>
+
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/andressaavelar" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+        <a href="https://github.com/aavelarbelo" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/debugandressa/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+
+      <a class="cta" href="#projects">[ View My Work ]</a>
+      <div class="scroll-hint">▼ SCROLL</div>
+    </section>
+
+    <!-- /* === about === */ -->
+    <section id="about">
+      <div class="section-label reveal">/* === about === */</div>
+      <h2 class="reveal">About</h2>
+      <div class="section-rule reveal"></div>
+      <div class="about-grid">
+        <p class="reveal">Engineer with a background in <strong>Control &amp; Automation</strong>, now specializing in <strong>Data Engineering</strong> (Postgraduate in Big Data &amp; Decision Making, ISEP).</p>
+        <p class="reveal">I have worked with data since my research years — collecting, validating and modeling it — with <strong>three co-authored scientific publications</strong>. I build reliable, traceable pipelines with a constant focus on data quality. Open to junior/trainee opportunities in data.</p>
+      </div>
+    </section>
+
+    <!-- /* === skills === */ -->
+    <section id="skills">
+      <div class="section-label reveal">/* === skills === */</div>
+      <h2 class="reveal">Skills</h2>
+      <div class="section-rule reveal"></div>
+
+      <div class="skill-groups">
+        <div class="skill-group reveal">
+          <h3>core</h3>
+          <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">NumPy</span><span class="tag">scikit-learn</span><span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">ETL</span><span class="tag">Data Warehousing</span><span class="tag">Dimensional Modeling</span><span class="tag">Data Quality</span><span class="tag">Power BI</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">Selenium</span></div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>postgraduate_foundations</h3>
+          <div class="tags"><span class="tag">Big Data Analytics</span><span class="tag">Data Mining</span><span class="tag">Business Intelligence</span><span class="tag">Spark / PySpark</span><span class="tag">Kafka</span><span class="tag">NoSQL</span></div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>currently_learning</h3>
+          <p class="group-note">// locked nodes — actively in training, public evidence coming soon</p>
+          <div class="tags"><span class="tag dim">T-SQL / SQL Server</span><span class="tag dim">AWS</span><span class="tag dim">CI/CD</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- /* === experience === */ -->
+    <section id="experience">
+      <div class="section-label reveal">/* === experience === */</div>
+      <h2 class="reveal">Experience</h2>
+      <div class="section-rule reveal"></div>
+
+      <div class="timeline">
+        <div class="t-item reveal">
+          <div class="t-when">NOV 2020 — JAN 2022 · PORTO, PORTUGAL</div>
+          <div class="t-role">Scientific Researcher (FCT grant)</div>
+          <div class="t-org">INEGI — Institute of Science and Innovation in Mechanical and Industrial Engineering</div>
+          <p class="t-desc">Experimental data end to end — image analysis (ImageJ) and statistical validation of uniaxial tensile tests. Co-author of <a href="https://doi.org/10.25766/vnbn-a964" target="_blank" rel="noopener" class="hl" style="text-decoration:underline;">3 scientific publications ↗</a>.</p>
+        </div>
+        <div class="t-item reveal">
+          <div class="t-when">MAY 2018 — JUN 2019 · BELÉM, BRAZIL</div>
+          <div class="t-role">Scientific Researcher (CNPq scholarship)</div>
+          <div class="t-org">IESAM</div>
+          <p class="t-desc">Fuzzy-logic traffic-light controller — intelligent algorithms and mathematical modelling. MATLAB and Arduino.</p>
+        </div>
+        <div class="t-item reveal">
+          <div class="t-when">AUG — DEC 2017 · BELÉM, BRAZIL</div>
+          <div class="t-role">Industrial Engineering Intern</div>
+          <div class="t-org">Mecatron</div>
+          <p class="t-desc">PLC parametrisation, electrical commands, script programming and systems integration.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- /* === education === */ -->
+    <section id="education">
+      <div class="section-label reveal">/* === education === */</div>
+      <h2 class="reveal">Education</h2>
+      <div class="section-rule reveal"></div>
+
+      <div class="card-grid">
+        <div class="card reveal">
+          <span class="c-when">NOV 2025 — JUL 2026 · COMPLETED</span>
+          <h3>ISEP Porto</h3>
+          <p>Postgraduate Programme — Big Data &amp; Decision Making (completed; certificate pending).</p>
+        </div>
+        <div class="card reveal">
+          <span class="c-when">FEUP</span>
+          <h3>MSc — Computational Mechanical Engineering</h3>
+          <p>Admitted 4th in the national selection · reoriented to the Data field (not completed).</p>
+        </div>
+        <div class="card reveal">
+          <span class="c-when">2014 — 2019</span>
+          <h3>Faculdade Estácio de Belém — BSc, Control &amp; Automation Engineering</h3>
+          <p>Foundation in automation, control systems and applied research.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- /* === projects === */ -->
+    <section id="projects">
+      <div class="section-label reveal">/* === projects === */</div>
+      <h2 class="reveal">Projects</h2>
+      <div class="section-rule reveal"></div>
+
+      <div class="card-grid">
+        <a class="card reveal" href="https://github.com/aavelarbelo/energy-value-index-porto" target="_blank" rel="noopener">
+          <span class="c-status progress">[ ACTIVE DEVELOPMENT ]</span>
+          <h3>Energy Value Index Porto</h3>
+          <p>End-to-end data pipeline turning fragmented public real-estate data into a district-level Energy Value Index for Porto: Python/Selenium ingestion (~2,800 listings, 7 districts), standardization and data-quality validation, PostgreSQL (Aiven), a composite EVI (median 6.7/10), and Power BI. Individual continuation of an academic project where I led the data engineering.</p>
+          <div class="c-tags"><span>Python</span><span>Selenium</span><span>PostgreSQL</span><span>SQL</span><span>Power BI</span><span>Data Quality</span></div>
+          <span class="c-link">→ github.com/aavelarbelo/energy-value-index-porto</span>
+        </a>
+        <a class="card reveal" href="https://github.com/aavelarbelo/data-mining-churn-prediction" target="_blank" rel="noopener">
+          <img class="c-thumb" src="https://raw.githubusercontent.com/aavelarbelo/data-mining-churn-prediction/main/reports/figures/roc_curves.png" alt="ROC curves comparing classifiers" loading="lazy" onerror="this.remove()">
+          <span class="c-status">[ COMPLETE ]</span>
+          <h3>Customer Churn Prediction</h3>
+          <p>Telecom churn prediction with CRISP-DM: EDA, cleaning, several classifiers compared — the highest-accuracy model was not the best business choice (recall over accuracy). Detected mixed encodings from two merged sources. Naive Bayes catches 85% of churners (recall 0.846); SVM gives the best overall balance (AUC 0.82).</p>
+          <div class="c-tags"><span>Python</span><span>pandas</span><span>scikit-learn</span></div>
+          <span class="c-link">→ github.com/aavelarbelo/data-mining-churn-prediction</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- /* === contact === */ -->
+    <section id="contact">
+      <div class="section-label reveal" style="text-align:left">/* === contact === */</div>
+      <h2 class="reveal">Contact</h2>
+      <div class="section-rule reveal"></div>
+
+      <p class="contact-phrase reveal">"Open to junior/trainee opportunities in Data Engineering."</p>
+      <p class="contact-loc reveal">📍 Porto, Portugal</p>
+
+      <div class="contact-links reveal">
+        <a href="mailto:eng.belo@gmail.com">eng.belo@gmail.com</a>
+        <span class="dot">·</span>
+        <a href="https://www.linkedin.com/in/andressaavelar" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="dot">·</span>
+        <a href="https://github.com/aavelarbelo" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>&gt;_</span> built with HTML · CSS · JS — no frameworks, no dependencies <span>// wake up, data is everywhere</span>
+  </footer>
+</div>
+
+<script>
+/* ============================================================
+   UTILITÁRIOS
+   ============================================================ */
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ============================================================
+   1. INTRO — CHUVA DE CÓDIGO MATRIX (canvas)
+   ============================================================ */
+const rain = document.getElementById('rainCanvas');
+const rctx = rain.getContext('2d');
+let rainRAF = null;
+
+const GLYPHS = '01'; // binário puro, como no filme
+let cols, drops, fontSize;
+
+function rainResize(){
+  rain.width  = window.innerWidth;
+  rain.height = window.innerHeight;
+  fontSize = Math.max(14, Math.floor(window.innerWidth / 80));
+  cols = Math.ceil(rain.width / fontSize);
+  drops = Array.from({length: cols}, () => Math.random() * -50); // começa fora da tela
+}
+
+function rainFrame(){
+  // rastro: preto semitransparente sobre o frame anterior
+  rctx.fillStyle = 'rgba(0, 0, 0, 0.07)';
+  rctx.fillRect(0, 0, rain.width, rain.height);
+
+  rctx.font = fontSize + 'px monospace';
+  for (let i = 0; i < cols; i++){
+    const ch = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+    const x = i * fontSize;
+    const y = drops[i] * fontSize;
+
+    // cabeça da coluna mais clara, cauda em verde matrix
+    rctx.fillStyle = Math.random() > 0.975 ? '#c8ffc8' : '#00ff41';
+    rctx.fillText(ch, x, y);
+
+    if (y > rain.height && Math.random() > 0.975) drops[i] = 0;
+    drops[i] += 0.85;
+  }
+  rainRAF = requestAnimationFrame(rainFrame);
+}
+
+/* ============================================================
+   2. INTRO — TYPEWRITER SEQUENCIAL
+   ============================================================ */
+const introLines = [
+  '> Initializing...',
+  '> Loading Andressa Avelar...',
+  '> Hello, World.',
+  '> Welcome.'
+];
+let introDone = false;
+
+function typeLine(el, text, speed){
+  return new Promise(resolve => {
+    let i = 0;
+    const cur = document.createElement('span');
+    cur.className = 'cursor';
+    el.appendChild(cur);
+    const tick = () => {
+      if (introDone){ resolve(); return; }
+      if (i < text.length){
+        cur.insertAdjacentText('beforebegin', text[i]);
+        i++;
+        setTimeout(tick, speed);
+      } else {
+        setTimeout(() => { cur.remove(); resolve(); }, 280);
+      }
+    };
+    tick();
+  });
+}
+
+async function runIntroSequence(){
+  for (let i = 0; i < introLines.length; i++){
+    if (introDone) return;
+    await typeLine(document.getElementById('l' + i), introLines[i], 42);
+  }
+  // pequena pausa após "Welcome." e cursor final piscando
+  const last = document.getElementById('l3');
+  const cur = document.createElement('span');
+  cur.className = 'cursor';
+  last.appendChild(cur);
+  setTimeout(dismissIntro, 1100);
+}
+
+/* ============================================================
+   3. INTRO → SITE (fade out / fade in)
+   ============================================================ */
+const intro = document.getElementById('intro');
+const site  = document.getElementById('site');
+
+function dismissIntro(){
+  if (introDone) return;
+  introDone = true;
+  intro.classList.add('hidden');
+  site.classList.add('visible');
+  site.setAttribute('aria-hidden', 'false');
+  startTree();
+  startRoleTypewriter();
+  // libera memória do canvas de chuva após o fade
+  setTimeout(() => {
+    cancelAnimationFrame(rainRAF);
+    intro.remove();
+  }, 1400);
+}
+
+intro.addEventListener('click', dismissIntro);
+document.addEventListener('keydown', e => { if (!introDone && (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape')) dismissIntro(); });
+
+/* Inicialização da intro */
+if (reducedMotion){
+  // sem animação: entra direto no site
+  dismissIntro();
+} else {
+  rainResize();
+  window.addEventListener('resize', rainResize);
+  rainFrame();
+  runIntroSequence();
+  setTimeout(dismissIntro, 9000); // failsafe
+}
+
+/* ============================================================
+   4. BACKGROUND — ÁRVORE TECNOLÓGICA (circuit board)
+   ============================================================ */
+const tree = document.getElementById('treeCanvas');
+const tctx = tree.getContext('2d');
+
+let traces = [];    // polilinhas de trilhas PCB {pts:[{x,y}...]}
+let pads   = [];    // pads circulares nas pontas / vias
+let leaves = [];    // subset de pads que pulsam suavemente
+let particles = []; // partículas flutuantes
+let treeStarted = false;
+
+/* PRNG com seed fixa — a árvore é "orgânica" mas estável entre builds */
+let seed = 2026;
+function srand(){ seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }
+function rr(a, b){ return a + srand() * (b - a); }
+
+/* Adiciona uma trilha e o seu espelho horizontal — simetria como na referência */
+function addTraceMirrored(pts, cx, padEnd){
+  traces.push({ pts });
+  const m = pts.map(p => ({ x: 2 * cx - p.x, y: p.y }));
+  traces.push({ pts: m });
+  if (padEnd){
+    const e = pts[pts.length - 1], me = m[m.length - 1];
+    pads.push({ x: e.x,  y: e.y  });
+    pads.push({ x: me.x, y: me.y });
+    if (srand() < 0.7){
+      leaves.push({ x: e.x,  y: e.y,  phase: srand() * Math.PI * 2, r: rr(1.4, 2.6) });
+      leaves.push({ x: me.x, y: me.y, phase: srand() * Math.PI * 2, r: rr(1.4, 2.6) });
+    }
+  }
+}
+
+/* Ramo estilo circuito: alterna segmentos verticais e diagonais a 45° */
+function circuitBranch(x0, y0, outward, steps, upLen, diagLen, leanFirst){
+  const pts = [{ x: x0, y: y0 }];
+  let x = x0, y = y0;
+  if (leanFirst){ const d = diagLen * rr(0.6, 1.1); x += outward * d; y -= d; pts.push({ x, y }); }
+  for (let s = 0; s < steps; s++){
+    const v = upLen * rr(0.55, 1.15);
+    y -= v; pts.push({ x, y });                              // sobe
+    const d = diagLen * rr(0.45, 1.05);
+    x += outward * d; y -= d; pts.push({ x, y });            // dobra 45° p/ fora
+  }
+  y -= upLen * rr(0.35, 0.85);
+  pts.push({ x, y });                                        // remate vertical
+  return pts;
+}
+
+/* Coluna de losangos aninhados — o miolo em treliça da copa da referência */
+function diamondColumn(cx, yBottom, count, half){
+  for (let k = 0; k < count; k++){
+    const cy = yBottom - k * half * 2.15;
+    const d = [
+      { x: cx,        y: cy + half },
+      { x: cx + half, y: cy },
+      { x: cx,        y: cy - half },
+      { x: cx - half, y: cy },
+      { x: cx,        y: cy + half }
+    ];
+    traces.push({ pts: d });
+    pads.push({ x: cx, y: cy - half });
+  }
+}
+
+function buildTree(){
+  traces = []; pads = []; leaves = []; particles = [];
+  seed = 2026; // regenera sempre o mesmo desenho
+  const w = tree.width  = window.innerWidth;
+  const h = tree.height = window.innerHeight;
+
+  const mobile = w < 700;
+  const cx    = mobile ? w * 0.5 : w * 0.72;  // eixo de simetria (à direita no desktop)
+  const baseY = h * 0.94;                     // base das raízes
+  const hubY  = h * 0.56;                     // topo do tronco / início da copa
+  const topY  = h * 0.10;                     // altura máxima da copa
+  const span  = mobile ? Math.min(w * 0.46, 240) : Math.min(w * 0.24, 330); // meia-largura da copa
+
+  /* — tronco: barramento de trilhas paralelas (como na referência) — */
+  const trunkTop = hubY, trunkBot = baseY - h * 0.06;
+  const nLines = 5, gap = 4.5;
+  for (let i = 0; i < nLines; i++){
+    const off = (i - (nLines - 1) / 2) * gap;
+    traces.push({ pts: [{ x: cx + off, y: trunkBot }, { x: cx + off, y: trunkTop + Math.abs(off) }] });
+  }
+  /* vias ao longo do tronco */
+  for (let i = 0; i < 6; i++) pads.push({ x: cx + rr(-gap * 2, gap * 2), y: rr(trunkTop + 30, trunkBot - 20) });
+  /* nó central (o "chip" onde a copa nasce) */
+  traces.push({ pts: [
+    { x: cx - 7, y: hubY + 7 }, { x: cx + 7, y: hubY + 7 },
+    { x: cx + 7, y: hubY - 7 }, { x: cx - 7, y: hubY - 7 }, { x: cx - 7, y: hubY + 7 }
+  ]});
+  pads.push({ x: cx, y: hubY });
+
+  /* — copa: leque simétrico de ramos ortogonais/45° — */
+  const canopyH = hubY - topY;
+  const nMain = mobile ? 8 : 10;
+  for (let i = 0; i < nMain; i++){
+    const t = i / (nMain - 1);                       // 0 = interno, 1 = externo
+    const x0 = cx + 2 + t * 10;
+    const y0 = hubY - 6 - t * 8;
+    const steps  = 2 + Math.floor(srand() * 3);
+    const upLen  = (canopyH * (0.9 - t * 0.45)) / (steps * 2);
+    const diagLen = 10 + t * (span / 3.2);           // externos abrem mais
+    addTraceMirrored(circuitBranch(x0, y0, 1, steps, upLen, diagLen, t > 0.45), cx, true);
+  }
+  /* galhos secundários mais curtos, a meia altura */
+  const nTwigs = mobile ? 6 : 9;
+  for (let i = 0; i < nTwigs; i++){
+    const x0 = cx + rr(8, span * 0.55);
+    const y0 = rr(topY + canopyH * 0.35, hubY - 20);
+    addTraceMirrored(circuitBranch(x0, y0, 1, 1 + Math.floor(srand() * 2), canopyH / 9, rr(10, 26), srand() < 0.5), cx, true);
+  }
+  /* miolo em treliça de losangos */
+  diamondColumn(cx, hubY - canopyH * 0.16, 4, canopyH * 0.055);
+  diamondColumn(cx - canopyH * 0.11, hubY - canopyH * 0.30, 3, canopyH * 0.042);
+  diamondColumn(cx + canopyH * 0.11, hubY - canopyH * 0.30, 3, canopyH * 0.042);
+
+  /* — raízes: trilhas que descem e se espalham na horizontal — */
+  const nRoots = 4;
+  for (let i = 0; i < nRoots; i++){
+    const off = i * gap - gap * 1.5;
+    const x0 = cx + Math.abs(off) * 0.4;
+    const pts = [{ x: x0, y: trunkBot }];
+    let x = x0, y = trunkBot;
+    const d = 10 + i * 9;
+    y += d * 0.8; pts.push({ x, y });                 // desce
+    x += d; y += d; pts.push({ x, y });               // 45° p/ fora
+    x += rr(30, 90) + i * 34; pts.push({ x, y });     // corre na horizontal
+    y = Math.min(y + rr(6, 16), baseY); pts.push({ x, y });
+    addTraceMirrored(pts, cx, true);
+  }
+  /* laço central sob o tronco (detalhe da referência) */
+  const lw2 = 16, lh2 = 22, ly = trunkBot + 14;
+  traces.push({ pts: [
+    { x: cx - lw2, y: ly }, { x: cx - lw2, y: ly + lh2 }, { x: cx, y: ly + lh2 + 10 },
+    { x: cx + lw2, y: ly + lh2 }, { x: cx + lw2, y: ly }
+  ]});
+  pads.push({ x: cx - 6, y: ly + lh2 + 6 });
+  pads.push({ x: cx + 6, y: ly + lh2 + 6 });
+
+  /* — partículas — */
+  const pCount = mobile ? 22 : 45;
+  for (let i = 0; i < pCount; i++){
+    particles.push({
+      x: srand() * w, y: srand() * h,
+      vy: rr(-0.18, -0.05), vx: rr(-0.06, 0.06),
+      r: rr(0.6, 1.8), a: rr(0.15, 0.5),
+      phase: srand() * Math.PI * 2
+    });
+  }
+}
+
+function drawTree(t){
+  const w = tree.width, h = tree.height;
+  tctx.clearRect(0, 0, w, h);
+  tctx.lineJoin = 'round';
+  tctx.lineCap  = 'round';
+
+  /* — trilhas — */
+  tctx.lineWidth = 1.1;
+  tctx.strokeStyle = 'rgba(0, 255, 65, 0.17)';
+  for (const tr of traces){
+    tctx.beginPath();
+    tctx.moveTo(tr.pts[0].x, tr.pts[0].y);
+    for (let i = 1; i < tr.pts.length; i++) tctx.lineTo(tr.pts[i].x, tr.pts[i].y);
+    tctx.stroke();
+  }
+
+  /* — pads (pontas e vias) — */
+  tctx.fillStyle = 'rgba(0, 255, 65, 0.26)';
+  for (const p of pads){
+    tctx.beginPath();
+    tctx.arc(p.x, p.y, 2.1, 0, Math.PI * 2);
+    tctx.fill();
+  }
+
+  /* — folhas pulsantes (pontas selecionadas) — */
+  for (const l of leaves){
+    const pulse = 0.5 + 0.5 * Math.sin(t * 0.0012 + l.phase);
+    tctx.fillStyle = `rgba(0, 255, 65, ${0.08 + pulse * 0.20})`;
+    tctx.beginPath();
+    tctx.arc(l.x, l.y, l.r + pulse * 1.3, 0, Math.PI * 2);
+    tctx.fill();
+  }
+
+  /* — partículas flutuantes — */
+  for (const p of particles){
+    p.x += p.vx; p.y += p.vy;
+    if (p.y < -5){ p.y = h + 5; p.x = Math.random() * w; }
+    if (p.x < -5) p.x = w + 5;
+    if (p.x > w + 5) p.x = -5;
+    const tw = 0.6 + 0.4 * Math.sin(t * 0.002 + p.phase);
+    tctx.fillStyle = `rgba(0, 255, 65, ${p.a * tw * 0.45})`;
+    tctx.beginPath();
+    tctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    tctx.fill();
+  }
+
+  if (!reducedMotion) requestAnimationFrame(drawTree);
+}
+
+function startTree(){
+  if (treeStarted) return;
+  treeStarted = true;
+  buildTree();
+  if (reducedMotion){
+    drawTree(0); // um único frame estático
+  } else {
+    requestAnimationFrame(drawTree);
+  }
+  window.addEventListener('resize', () => { buildTree(); if (reducedMotion) drawTree(0); });
+}
+
+/* ============================================================
+   5. HERO — TYPEWRITER ROTATIVO DE CARGOS
+   ============================================================ */
+const roles = ['Data Engineer · specialization in Big Data & Decision Making (ISEP) · foundation in Control & Automation Engineering'];
+const roleText = document.getElementById('roleText');
+let roleStarted = false;
+
+function startRoleTypewriter(){
+  if (roleStarted) return;
+  roleStarted = true;
+
+  if (reducedMotion){ roleText.textContent = roles[0]; return; }
+
+  let ci = 0;
+  const word = roles[0];
+
+  function step(){
+    ci++;
+    roleText.textContent = word.slice(0, ci);
+    if (ci === word.length) return; // typed once, no delete/rotate loop
+    setTimeout(step, 38);
+  }
+  step();
+}
+
+/* ============================================================
+   6. SCROLL REVEAL — Intersection Observer
+   ============================================================ */
+const observer = new IntersectionObserver(entries => {
+  for (const e of entries){
+    if (e.isIntersecting){
+      e.target.classList.add('in');
+      observer.unobserve(e.target);
+    }
+  }
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
