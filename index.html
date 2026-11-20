@@ -966,7 +966,7 @@ function dismissIntro(){
   site.classList.add('visible');
   site.setAttribute('aria-hidden', 'false');
   startTree();
-  setTimeout(startRoleTypewriter, reducedMotion ? 0 : 650);
+  setTimeout(startRoleTypewriter, reducedMotion ? 0 : 900);
   // libera memória do canvas de chuva após o fade
   setTimeout(() => {
     cancelAnimationFrame(rainRAF);
@@ -1220,10 +1220,10 @@ function startRoleTypewriter(){
   const word = roles[0];
 
   function step(){
-    ci = Math.min(ci + 2, word.length); // 2 caracteres por passo: ~1,6 s no total
+    ci++;
     roleText.textContent = word.slice(0, ci);
     if (ci === word.length) return; // typed once, no delete/rotate loop
-    setTimeout(step, 24);
+    setTimeout(step, 38);
   }
   step();
 }
