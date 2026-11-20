@@ -53,7 +53,7 @@ a, button{ cursor: crosshair; }
 html{ scrollbar-width: thin; scrollbar-color: var(--green-dim) var(--bg); }
 
 /* ============================================================
-   /* === intro: matrix rain + typewriter === */
+   === intro: matrix rain + typewriter ===
    ============================================================ */
 #intro{
   position: fixed;
@@ -63,7 +63,7 @@ html{ scrollbar-width: thin; scrollbar-color: var(--green-dim) var(--bg); }
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 1.2s ease;
+  transition: opacity 0.9s ease;
 }
 #intro.hidden{ opacity: 0; pointer-events: none; }
 
@@ -105,9 +105,22 @@ html{ scrollbar-width: thin; scrollbar-color: var(--green-dim) var(--bg); }
 }
 
 /* ============================================================
-   /* === site principal === */
+   === site principal ===
    ============================================================ */
-#site{ opacity: 0; transition: opacity 1.4s ease; }
+#site{ opacity: 0; transition: opacity 0.9s ease; }
+/* Entrada do hero: um elemento de cada vez, depois da intro */
+#hero > *{ opacity: 0; }
+#site.visible #hero > *{ animation: heroIn 0.8s cubic-bezier(.2,.7,.2,1) both; }
+#site.visible #hero > :nth-child(1){ animation-delay: 0.25s; }
+#site.visible #hero > :nth-child(2){ animation-delay: 0.40s; }
+#site.visible #hero > :nth-child(3){ animation-delay: 0.60s; }
+#site.visible #hero > :nth-child(4){ animation-delay: 0.80s; }
+#site.visible #hero > :nth-child(5){ animation-delay: 0.95s; }
+#site.visible #hero > :nth-child(6){ animation-delay: 1.10s; }
+#site.visible #hero > :nth-child(7){ animation-delay: 1.25s; }
+@keyframes heroIn{ from{ opacity: 0; transform: translateY(10px); } to{ opacity: 1; transform: none; } }
+#treeCanvas{ opacity: 0; transition: opacity 1.6s ease 0.3s; }
+#site.visible #treeCanvas{ opacity: 1; }
 #site.visible{ opacity: 1; }
 
 /* Árvore tecnológica de fundo */
@@ -577,6 +590,7 @@ footer span{ color: var(--green); opacity: 0.6; }
   }
   html{ scroll-behavior: auto; }
   .reveal{ opacity: 1; transform: none; }
+  #hero > *, #site.visible #hero > *{ opacity: 1; animation: none !important; }
 }
 </style>
 </head>
@@ -874,9 +888,13 @@ function rainResize(){
   drops = Array.from({length: cols}, () => Math.random() * -50); // começa fora da tela
 }
 
-function rainFrame(){
+let rainLast = 0;
+function rainFrame(ts){
+  rainRAF = requestAnimationFrame(rainFrame);
+  if (ts - rainLast < 33) return; // ~30 fps: chuva mais calma
+  rainLast = ts;
   // rastro: preto semitransparente sobre o frame anterior
-  rctx.fillStyle = 'rgba(0, 0, 0, 0.07)';
+  rctx.fillStyle = 'rgba(0, 0, 0, 0.09)';
   rctx.fillRect(0, 0, rain.width, rain.height);
 
   rctx.font = fontSize + 'px monospace';
@@ -890,9 +908,8 @@ function rainFrame(){
     rctx.fillText(ch, x, y);
 
     if (y > rain.height && Math.random() > 0.975) drops[i] = 0;
-    drops[i] += 0.85;
+    drops[i] += 1;
   }
-  rainRAF = requestAnimationFrame(rainFrame);
 }
 
 /* ============================================================
@@ -949,12 +966,12 @@ function dismissIntro(){
   site.classList.add('visible');
   site.setAttribute('aria-hidden', 'false');
   startTree();
-  startRoleTypewriter();
+  setTimeout(startRoleTypewriter, reducedMotion ? 0 : 900);
   // libera memória do canvas de chuva após o fade
   setTimeout(() => {
     cancelAnimationFrame(rainRAF);
     intro.remove();
-  }, 1400);
+  }, 1000);
 }
 
 intro.addEventListener('click', dismissIntro);
@@ -967,7 +984,7 @@ if (reducedMotion){
 } else {
   rainResize();
   window.addEventListener('resize', rainResize);
-  rainFrame();
+  rainRAF = requestAnimationFrame(rainFrame);
   runIntroSequence();
   setTimeout(dismissIntro, 9000); // failsafe
 }
