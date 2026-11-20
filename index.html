@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Andressa Avelar — Data Engineer</title>
-<meta name="description" content="Andressa Avelar — Data Engineer. Transforming automation into robust solutions for Data and Technology.">
+<title>Andressa Avelar — Junior Data Engineer</title>
+<meta name="description" content="Andressa Avelar — Junior Data Engineer. Building reliable, traceable data pipelines, from messy source to decision-ready information.">
 
 <!-- Google Fonts: Raleway (corpo elegante) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -483,6 +483,32 @@ a:focus-visible, button:focus-visible{
 }
 .roadmap-line .hl{ color: var(--green); }
 
+
+/* Sub-funções dentro de um mesmo empregador (INEGI, SIEL) */
+.t-sub{ margin-top: 1.1rem; padding-left: 0.9rem; border-left: 1px solid var(--border); }
+.t-sub .t-sub-when{ font-family: var(--mono); font-size: 0.7rem; color: var(--green); letter-spacing: 0.1em; }
+.t-sub .t-role{ font-size: 0.98rem; margin-top: 0.1rem; }
+.t-sub .t-desc{ margin-top: 0.35rem; }
+.t-earlier{ font-size: 0.85rem; color: var(--muted); margin-top: 0.7rem; max-width: 640px; }
+
+/* Publicações — botões abrem o PDF noutro separador */
+.pubs{ margin-top: 1.6rem; display: flex; flex-direction: column; gap: 0.7rem; max-width: 700px; }
+.pubs-label{ font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.1em; }
+.pub{
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 0.6rem 1rem;
+  border: 1px solid var(--border);
+  background: rgba(0,59,0,0.12);
+  padding: 0.75rem 0.95rem;
+}
+.pub-info{ flex: 1 1 300px; }
+.pub-venue{ font-family: var(--mono); font-size: 0.7rem; color: var(--green); letter-spacing: 0.1em; }
+.pub-title{ font-size: 0.9rem; color: #d8d8d8; margin-top: 0.1rem; }
+.pub-role{ font-size: 0.78rem; color: var(--muted); margin-top: 0.15rem; }
+.pub-actions{ display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.cv-buttons{ display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2.2rem; }
+
 /* ------------------------------------------------------------
    CONTACT
    ------------------------------------------------------------ */
@@ -563,9 +589,6 @@ footer span{ color: var(--green); opacity: 0.6; }
   <canvas id="rainCanvas" aria-hidden="true"></canvas>
   <div id="introText" aria-live="polite">
     <span class="line" id="l0"></span>
-    <span class="line" id="l1"></span>
-    <span class="line" id="l2"></span>
-    <span class="line" id="l3"></span>
   </div>
   <div id="skipHint">[ CLICK TO ENTER ]</div>
 </div>
@@ -608,8 +631,9 @@ footer span{ color: var(--green); opacity: 0.6; }
       <h2 class="reveal">About</h2>
       <div class="section-rule reveal"></div>
       <div class="about-grid">
-        <p class="reveal">Engineer with a background in <strong>Control &amp; Automation</strong>, now specializing in <strong>Data Engineering</strong> (Postgraduate in Big Data &amp; Decision Making, ISEP).</p>
-        <p class="reveal">I have worked with data since my research years — collecting, validating and modeling it — with <strong>three co-authored scientific publications</strong>. I build reliable, traceable pipelines with a constant focus on data quality. Open to junior/trainee opportunities in data.</p>
+        <p class="reveal">Engineer with a background in <strong>Control &amp; Automation</strong>, now specializing in <strong>Data Engineering</strong> (Postgraduate Diploma in Big Data &amp; Decision Making, ISEP). Before moving into data, I spent 4+ years at an electrical engineering company working with cost estimates, sales KPIs and project data.</p>
+        <p class="reveal">I have worked with data since my research years — collecting, validating and structuring it — with <strong>three co-authored scientific publications</strong>. I build reliable, traceable pipelines with a constant focus on data quality. My interests: data in the financial sector and data security. Open to junior/trainee opportunities in data.</p>
+        <p class="reveal">Most recently I built an <strong>LLM-based job-screening workflow</strong> (n8n + Claude API) that is <span class="hl">in production</span>: it evaluates job postings against a verified profile, with guardrails against invented facts and alerts when something fails.</p>
       </div>
     </section>
 
@@ -622,16 +646,21 @@ footer span{ color: var(--green); opacity: 0.6; }
       <div class="skill-groups">
         <div class="skill-group reveal">
           <h3>core</h3>
-          <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">NumPy</span><span class="tag">scikit-learn</span><span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">ETL</span><span class="tag">Data Warehousing</span><span class="tag">Dimensional Modeling</span><span class="tag">Data Quality</span><span class="tag">Power BI</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">Selenium</span></div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">NumPy</span><span class="tag">scikit-learn</span><span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">ETL</span><span class="tag">Data Quality</span><span class="tag">Power BI</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">Selenium</span></div>
         </div>
         <div class="skill-group reveal">
           <h3>postgraduate_foundations</h3>
-          <div class="tags"><span class="tag">Big Data Analytics</span><span class="tag">Data Mining</span><span class="tag">Business Intelligence</span><span class="tag">Spark / PySpark</span><span class="tag">Kafka</span><span class="tag">NoSQL</span></div>
+          <div class="tags"><span class="tag">Big Data Analytics</span><span class="tag">Data Mining</span><span class="tag">Business Intelligence</span><span class="tag">Data Warehousing</span><span class="tag">Spark</span><span class="tag">Kafka</span><span class="tag">NoSQL</span></div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>llm_applications</h3>
+          <p class="group-note">// personal project, in production since Nov 2026</p>
+          <div class="tags"><span class="tag">Claude API</span><span class="tag">Prompt &amp; context engineering</span><span class="tag">Structured JSON output</span><span class="tag">Prompt caching</span><span class="tag">n8n</span><span class="tag">Gmail &amp; Google Sheets integrations</span></div>
         </div>
         <div class="skill-group reveal">
           <h3>currently_learning</h3>
-          <p class="group-note">// locked nodes — actively in training, public evidence coming soon</p>
-          <div class="tags"><span class="tag dim">T-SQL / SQL Server</span><span class="tag dim">AWS</span><span class="tag dim">CI/CD</span></div>
+          <p class="group-note">// Udemy Data Engineering bootcamp — in progress, not yet in my project portfolio</p>
+          <div class="tags"><span class="tag dim">Airflow on AWS EC2</span><span class="tag dim">Snowflake</span><span class="tag dim">dbt</span></div>
         </div>
       </div>
     </section>
@@ -643,23 +672,90 @@ footer span{ color: var(--green); opacity: 0.6; }
       <div class="section-rule reveal"></div>
 
       <div class="timeline">
+
         <div class="t-item reveal">
-          <div class="t-when">NOV 2020 — JAN 2022 · PORTO, PORTUGAL</div>
-          <div class="t-role">Scientific Researcher (FCT grant)</div>
-          <div class="t-org">INEGI — Institute of Science and Innovation in Mechanical and Industrial Engineering</div>
-          <p class="t-desc">Experimental data end to end — image analysis (ImageJ) and statistical validation of uniaxial tensile tests. Co-author of <a href="https://doi.org/10.25766/vnbn-a964" target="_blank" rel="noopener" class="hl" style="text-decoration:underline;">3 scientific publications ↗</a>.</p>
+          <div class="t-when">AUG 2021 — MAY 2026 · PORTO, PORTUGAL</div>
+          <div class="t-role">Hospitality, Care &amp; Operations</div>
+          <div class="t-org">Various employers</div>
+          <p class="t-desc">Helped improve the daily operations of a restaurant by standardising procedures and setting up purchasing and stock-management routines.</p>
         </div>
+
         <div class="t-item reveal">
-          <div class="t-when">MAY 2018 — JUN 2019 · BELÉM, BRAZIL</div>
-          <div class="t-role">Scientific Researcher (CNPq scholarship)</div>
+          <div class="t-when">NOV 2020 — DEC 2021 · PORTO, PORTUGAL</div>
+          <div class="t-org" style="margin-top:0.15rem;">INEGI — Institute of Science and Innovation in Mechanical and Industrial Engineering</div>
+
+          <div class="t-sub">
+            <div class="t-sub-when">JUL — DEC 2021</div>
+            <div class="t-role">Research Fellow — SPINMESH project</div>
+            <p class="t-desc">Experimental and statistical evaluation of biodegradable surgical meshes. Contributed uniaxial tensile-test data to a team study comparing biodegradable PCL meshes with a commercial polypropylene mesh; quantified pore deformation by image analysis (ImageJ); ran statistical analysis in GraphPad Prism and Excel (t-tests, mean ± SEM, p &lt; 0.05); analysed filament degradation data over 60 and 180 days. In the published comparison, the commercial mesh's pores narrowed from 1.95 mm to 0.85 mm under tension, while the PCL mesh pores stayed stable. Presented the CNME 2020 paper at the 12th National Congress of Experimental Mechanics (Leiria, 2021).</p>
+          </div>
+
+          <div class="t-sub">
+            <div class="t-sub-when">NOV 2020 — JUN 2021</div>
+            <div class="t-role">Research Intern</div>
+            <p class="t-desc">Biomechanics laboratory — supported uniaxial tensile tests and organised the resulting experimental datasets; processed and analysed mesh images in ImageJ to measure geometric deformation; contributed to the data analysis and writing of the paper presented at CNME 2020/21.</p>
+          </div>
+
+          <div class="pubs">
+            <div class="pubs-label">// 3 co-authored scientific works</div>
+
+            <div class="pub">
+              <div class="pub-info">
+                <div class="pub-venue">CNME 2020 · FULL PAPER</div>
+                <div class="pub-title">Analysis of Pelvic Floor Mesh Geometry Variation Under Tensile Loading</div>
+                <div class="pub-role">Co-author · presented by me · image analysis of pore deformation</div>
+              </div>
+              <div class="pub-actions">
+                <a class="card-link-btn" href="https://doi.org/10.25766/vnbn-a964" target="_blank" rel="noopener">DOI ↗</a>
+              </div>
+            </div>
+
+            <div class="pub">
+              <div class="pub-info">
+                <div class="pub-venue">DCE21 · POSTER</div>
+                <div class="pub-title">Degradation and Sterilization Effect on Polycaprolactone Filament Produced by Melt Electrospinning Technology</div>
+                <div class="pub-role">Co-author · presented by C. Soares · degradation data and statistics</div>
+              </div>
+              <div class="pub-actions">
+              </div>
+            </div>
+
+            <div class="pub">
+              <div class="pub-info">
+                <div class="pub-venue">IUGA 2021 · ABSTRACT</div>
+                <div class="pub-title">Novel Solutions of Biodegradable Surgical Synthetic Mesh for Transvaginal POP Repair</div>
+                <div class="pub-role">Co-author · mechanical characterisation and pore deformation of PCL vs polypropylene meshes</div>
+              </div>
+              <div class="pub-actions">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="t-item reveal">
+          <div class="t-when">AUG 2018 — JUL 2019 · BELÉM, BRAZIL</div>
+          <div class="t-role">Undergraduate Researcher (CNPq scholarship)</div>
           <div class="t-org">IESAM</div>
-          <p class="t-desc">Fuzzy-logic traffic-light controller — intelligent algorithms and mathematical modelling. MATLAB and Arduino.</p>
+          <p class="t-desc">Traffic-light control based on fuzzy logic (PIBIC/CNPq project and final-year thesis). Collected and organised real traffic data at a high-congestion intersection, modelled and simulated the controller in MATLAB, validated it against observed patterns and built a working prototype with Arduino. Presented at the IV Scientific Initiation and Academic Conference (2019).</p>
         </div>
+
+        <div class="t-item reveal">
+          <div class="t-when">JAN 2015 — JUL 2019 · BELÉM, BRAZIL</div>
+          <div class="t-org" style="margin-top:0.15rem;">SIEL Engenharia</div>
+
+          <div class="t-sub">
+            <div class="t-sub-when">JAN 2018 — JUL 2019</div>
+            <div class="t-role">Engineering Assistant</div>
+            <p class="t-desc">Prepared cost estimates for electrical works from project drawings (quantity take-offs, materials, labour); tracked sales KPIs against quarterly targets; presented technical and commercial proposals to clients; parameterised WEG variable frequency drives in industrial consulting for Dow Corning (Breu Branco, PA).</p>
+          </div>
+          <p class="t-earlier">Earlier at the company: Technical Training &amp; Administrative Assistant (2016 — 2017) · Engineering Intern (2015).</p>
+        </div>
+
         <div class="t-item reveal">
           <div class="t-when">AUG — DEC 2017 · BELÉM, BRAZIL</div>
-          <div class="t-role">Industrial Engineering Intern</div>
+          <div class="t-role">Control &amp; Automation Engineering Intern</div>
           <div class="t-org">Mecatron</div>
-          <p class="t-desc">PLC parametrisation, electrical commands, script programming and systems integration.</p>
+          <p class="t-desc">PLC programming and parameterisation, electrical control diagrams and systems integration for client automation projects.</p>
         </div>
       </div>
     </section>
@@ -672,18 +768,18 @@ footer span{ color: var(--green); opacity: 0.6; }
 
       <div class="card-grid">
         <div class="card reveal">
-          <span class="c-when">NOV 2025 — JUL 2026 · COMPLETED</span>
-          <h3>ISEP Porto</h3>
-          <p>Postgraduate Programme — Big Data &amp; Decision Making (completed; certificate pending).</p>
+          <span class="c-when">NOV 2025 — JUN 2026 · COMPLETED</span>
+          <h3>ISEP Porto — Postgraduate Diploma in Big Data &amp; Decision Making</h3>
+          <p>Average grade 15/20. Data Mining, Business Intelligence, Big Data Analytics.</p>
         </div>
         <div class="card reveal">
-          <span class="c-when">FEUP</span>
-          <h3>MSc — Computational Mechanical Engineering</h3>
-          <p>Admitted 4th in the national selection · reoriented to the Data field (not completed).</p>
+          <span class="c-when">2020 — 2022 · NOT COMPLETED</span>
+          <h3>FEUP — MSc, Computational Mechanics</h3>
+          <p>Admitted 4th in the national selection · reoriented to the Data field.</p>
         </div>
         <div class="card reveal">
           <span class="c-when">2014 — 2019</span>
-          <h3>Faculdade Estácio de Belém — BSc, Control &amp; Automation Engineering</h3>
+          <h3>Estácio / IESAM, Belém — BSc, Control &amp; Automation Engineering</h3>
           <p>Foundation in automation, control systems and applied research.</p>
         </div>
       </div>
@@ -696,19 +792,34 @@ footer span{ color: var(--green); opacity: 0.6; }
       <div class="section-rule reveal"></div>
 
       <div class="card-grid">
-        <a class="card reveal" href="https://github.com/aavelarbelo/energy-value-index-porto" target="_blank" rel="noopener">
-          <span class="c-status progress">[ ACTIVE DEVELOPMENT ]</span>
-          <h3>Energy Value Index Porto</h3>
-          <p>End-to-end data pipeline turning fragmented public real-estate data into a district-level Energy Value Index for Porto: Python/Selenium ingestion (~2,800 listings, 7 districts), standardization and data-quality validation, PostgreSQL (Aiven), a composite EVI (median 6.7/10), and Power BI. Individual continuation of an academic project where I led the data engineering.</p>
-          <div class="c-tags"><span>Python</span><span>Selenium</span><span>PostgreSQL</span><span>SQL</span><span>Power BI</span><span>Data Quality</span></div>
-          <span class="c-link">→ github.com/aavelarbelo/energy-value-index-porto</span>
-        </a>
+        <div class="card reveal">
+          <span class="c-status">[ PERSONAL · IN PRODUCTION ]</span>
+          <h3>LLM Job Application Assistant</h3>
+          <p>Use an LLM to screen job postings and tailor CVs faster, without letting it invent experience or round numbers up. A daily <strong style="color:#cfe8cf;font-weight:600;">n8n</strong> workflow reads LinkedIn job alerts, applies a free rule-based pre-filter and asks the <strong style="color:#cfe8cf;font-weight:600;">Claude API</strong> to score each posting (0–100) against a verified master profile, returning structured JSON. Postings scoring 60+ arrive by email with a tailored CV and cover letter; every result is logged in Google Sheets. I review and submit every application myself.</p>
+          <p class="c-origin-note">Found in testing: responses were truncated because adaptive thinking used 5,764 of 6,000 output tokens, fixed through the thinking configuration and token limit. Unreadable responses are flagged instead of discarded, and failures send an email alert. Measured cost: ≈ US$ 0.04 per posting.</p>
+          <div class="c-tags"><span>n8n</span><span>Claude API</span><span>Python</span><span>python-docx</span><span>Gmail</span><span>Google Sheets</span></div>
+          <div class="card-links">
+            <a class="card-link-btn primary" href="https://github.com/aavelarbelo/llm-job-application-assistant" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="card reveal">
+          <img class="c-thumb" src="https://raw.githubusercontent.com/aavelarbelo/urbaneco-analytics/main/docs/img/visao_geral.png" alt="UrbanEco Power BI overview page" loading="lazy" onerror="this.remove()">
+          <span class="c-status">[ GROUP PROJECT · ISEP 2026 ]</span>
+          <h3>UrbanEco Analytics</h3>
+          <p>Final group project (Postgraduate Diploma in Big Data &amp; Decision Making, ISEP, grade 16/20): how energy efficiency relates to the asking price per m² of homes for sale in Porto. <strong style="color:#cfe8cf;font-weight:600;">My contribution:</strong> a Python/Selenium scraper with automatic pagination, checked by URL — which revealed listings repeated across pages; the pandas cleaning script (price-per-m² filter, duplicate removal, 7 parish unions); a local PostgreSQL database in Docker; a review of the team's seven-page Power BI dashboard — fixing a KPI that added up the premiums of all segments (14,772 €/m²) instead of averaging the reliable ones (338 €/m²), the EVI score giving 0 to missing values, the “best parish” being picked alphabetically, and inverted rankings; and documentation of the pipeline, methodology and limitations.</p>
+          <p class="c-origin-note">Group findings: median asking price ranges from 4,180 to 6,950 €/m² across parishes (+66%); A/B-rated homes ask more in 15 of 15 segments (+766 €/m²) — association, not causation.</p>
+          <div class="c-tags"><span>Python</span><span>Selenium</span><span>pandas</span><span>PostgreSQL</span><span>Docker</span><span>Power BI</span></div>
+          <div class="card-links">
+            <a class="card-link-btn primary" href="https://aavelarbelo.github.io/urbaneco-analytics/" target="_blank" rel="noopener">Project site ↗</a>
+            <a class="card-link-btn" href="https://github.com/aavelarbelo/urbaneco-analytics" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
         <a class="card reveal" href="https://github.com/aavelarbelo/data-mining-churn-prediction" target="_blank" rel="noopener">
           <img class="c-thumb" src="https://raw.githubusercontent.com/aavelarbelo/data-mining-churn-prediction/main/reports/figures/roc_curves.png" alt="ROC curves comparing classifiers" loading="lazy" onerror="this.remove()">
-          <span class="c-status">[ COMPLETE ]</span>
+          <span class="c-status">[ INDIVIDUAL · COMPLETE ]</span>
           <h3>Customer Churn Prediction</h3>
-          <p>Telecom churn prediction with CRISP-DM: EDA, cleaning, several classifiers compared — the highest-accuracy model was not the best business choice (recall over accuracy). Detected mixed encodings from two merged sources. Naive Bayes catches 85% of churners (recall 0.846); SVM gives the best overall balance (AUC 0.82).</p>
-          <div class="c-tags"><span>Python</span><span>pandas</span><span>scikit-learn</span></div>
+          <p>Data Mining course unit (ISEP), continued as a portfolio project with CRISP-DM. On the Telco Customer Churn data (5,042 records) the EDA exposed two merged sources with mixed encodings (target True/False vs Yes/No), which I unified; 651 structural missing values became “No service” and encoding went from 77 to 46 columns. I compared KNN, Decision Tree, SVM and Naive Bayes (stratified 80/20 split, 5-fold CV, StandardScaler — without it the SVM predicted no churners). SVM: accuracy 0.803, F1 0.595, ROC-AUC 0.82. Naive Bayes: recall 0.846, ROC-AUC 0.82 — it misses 41 of 267 churners with 277 false alarms, against 121 and 78 for the SVM. The best model depends on the cost of the error.</p>
+          <div class="c-tags"><span>Python</span><span>pandas</span><span>NumPy</span><span>scikit-learn</span><span>Matplotlib</span><span>Seaborn</span><span>Jupyter</span></div>
           <span class="c-link">→ github.com/aavelarbelo/data-mining-churn-prediction</span>
         </a>
       </div>
@@ -721,7 +832,7 @@ footer span{ color: var(--green); opacity: 0.6; }
       <div class="section-rule reveal"></div>
 
       <p class="contact-phrase reveal">"Open to junior/trainee opportunities in Data Engineering."</p>
-      <p class="contact-loc reveal">📍 Porto, Portugal</p>
+      <p class="contact-loc reveal">📍 Porto, Portugal · Authorised to work in Portugal</p>
 
       <div class="contact-links reveal">
         <a href="mailto:eng.belo@gmail.com">eng.belo@gmail.com</a>
@@ -788,10 +899,7 @@ function rainFrame(){
    2. INTRO — TYPEWRITER SEQUENCIAL
    ============================================================ */
 const introLines = [
-  '> Initializing...',
-  '> Loading Andressa Avelar...',
-  '> Hello, World.',
-  '> Welcome.'
+  '> Wake up, data is everywhere...'
 ];
 let introDone = false;
 
@@ -820,12 +928,12 @@ async function runIntroSequence(){
     if (introDone) return;
     await typeLine(document.getElementById('l' + i), introLines[i], 42);
   }
-  // pequena pausa após "Welcome." e cursor final piscando
-  const last = document.getElementById('l3');
+  // pequena pausa após a linha e cursor final piscando
+  const last = document.getElementById('l' + (introLines.length - 1));
   const cur = document.createElement('span');
   cur.className = 'cursor';
   last.appendChild(cur);
-  setTimeout(dismissIntro, 1100);
+  setTimeout(dismissIntro, 2000); // 2 s com o cursor a piscar, depois o site arranca
 }
 
 /* ============================================================
@@ -1081,7 +1189,7 @@ function startTree(){
 /* ============================================================
    5. HERO — TYPEWRITER ROTATIVO DE CARGOS
    ============================================================ */
-const roles = ['Data Engineer · specialization in Big Data & Decision Making (ISEP) · foundation in Control & Automation Engineering'];
+const roles = ['Junior Data Engineer · specialization in Big Data & Decision Making (ISEP) · foundation in Control & Automation Engineering'];
 const roleText = document.getElementById('roleText');
 let roleStarted = false;
 
